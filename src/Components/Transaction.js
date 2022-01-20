@@ -14,4 +14,4 @@ const Transaction = ({ trans }) => {
     );
 }
  
-export default Transaction
+export default Transaction;
