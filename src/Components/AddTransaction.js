@@ -5,7 +5,7 @@ export const AddTransaction = ({storage}) => {
 
     const [text, setText] = useState('');
     const [amount, setAmount] = useState('');
-    const  { addTransaction } = useContext(GlobalContext);
+    const  { addTransaction, transactions } = useContext(GlobalContext);
    
   
     const onSubmit = e => {
@@ -17,8 +17,8 @@ export const AddTransaction = ({storage}) => {
             amount: Number(amount)
         }
       
-        addTransaction(newTransaction );
-        storage(newTransaction)
+        addTransaction(newTransaction);
+        storage(transactions)
     }
 
     return(
