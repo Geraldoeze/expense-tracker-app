@@ -8,6 +8,12 @@ import { AddTransaction } from './Components/AddTransaction';
 import { GlobalProvider } from './context/GlobalState';
 
 function App() {
+
+  const saveToLocalStorage = (items) => {
+    localStorage.setItem('expense-tracker', JSON.stringify(items))
+}
+
+
   return (
     <GlobalProvider>
       <Header />
@@ -15,7 +21,7 @@ function App() {
         <Balance />
         <IncomeExpenses />
         <TransactionList />
-        <AddTransaction />
+        <AddTransaction storage={saveToLocalStorage}/>
       </div>
     </GlobalProvider>
   );

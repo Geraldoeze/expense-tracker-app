@@ -1,12 +1,13 @@
 import React, { useState, useContext } from 'react';
 import { GlobalContext } from '../context/GlobalState';
 
-export const AddTransaction = () => {
+export const AddTransaction = ({storage}) => {
 
     const [text, setText] = useState('');
     const [amount, setAmount] = useState('');
     const  { addTransaction } = useContext(GlobalContext);
- 
+   
+  
     const onSubmit = e => {
         e.preventDefault();
 
@@ -15,8 +16,9 @@ export const AddTransaction = () => {
             text,
             amount: Number(amount)
         }
-
-        addTransaction(newTransaction )
+      
+        addTransaction(newTransaction );
+        storage(newTransaction)
     }
 
     return(
