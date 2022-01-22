@@ -18,7 +18,8 @@ export const AddTransaction = ({storage}) => {
         }
       
         addTransaction(newTransaction);
-        storage(transactions)
+        const same = [...transactions, newTransaction]
+        storage(same)
     }
 
     return(

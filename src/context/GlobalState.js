@@ -1,17 +1,15 @@
-import React, { createContext, useReducer, useEffect } from 'react';
+import React, { createContext, useReducer } from 'react';
 import AppReducer from './AppReducer';
 
-
-
-// useEffect(() => {
-//     const expenseList = JSON.parse(localStorage.getItem('expense-tracker'));
-//     setList([...expenseList])
-//   }, [])
+const getExpense = () => {
+    const localData = localStorage.getItem('expenses');
+    return localData ? JSON.parse(localData) : []
+}
 
 
 //Initial State
 const InitialState = {
-    transactions: []
+    transactions: getExpense()
 }
 
 
